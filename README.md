@@ -149,7 +149,7 @@ The OB uses python sortedcontainers' sortedlist. Sortedlist is of the form:  `[ 
  
 
 <p align="center">
-  <img width="600" height="600" src="https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true">
+  <img width="600" height="400" src="https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true">
 </p>
 
 ## Database Schema  
