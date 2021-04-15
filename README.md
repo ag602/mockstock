@@ -147,10 +147,10 @@ The OB uses python sortedcontainers' sortedlist. Sortedlist is of the form:  `[ 
 
  The flow of order processing is shown below in the flow-diagram:
  
-<p align="center">
-![order flow](https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true)
-</p>
 
+<p align="center">
+  <img width="600" height="600" src="https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true">
+</p>
 
 ## Database Schema  
 ![db schema](https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/temp.jpg?raw=true)
