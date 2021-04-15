@@ -47,11 +47,12 @@ ___
  ## HOW DOES IT WORK? 
 
  
-****NON-TECHNICAL EXPLANATION****
+****NON-TECHNICAL EXPLANATION****</br>
 An order is simply an offer (buy/sell) against a security which is not executed yet. An investor places an order which is executed by the matching engine using various algorithms (the best one being *Price-Time*). The execution of order is based on several (a lot) of factors such as - Markey/Limit order, limit price if the order is a limit order, available  quantity, an IOC/Day order, etc. Here, I have implemented a simple price time priority algorithm for both Market/Limit orders. The order will be partially filled, if the OB has no more units left to fill your desired amount. If an OB entry is consumed fully, it will be removed from the list. If some part of your order is unfulfilled, it will be recorded in the OB on a price-time basis. 
 
----
-****TECHNICAL EXPLANATION****
+----
+
+****TECHNICAL EXPLANATION****</br>
 There are 2 endpoints - `/v1/order_gateway` and `/v1/data_gateway`. 
 
 **Example Request-** 
@@ -61,77 +62,77 @@ There are 2 endpoints - `/v1/order_gateway` and `/v1/data_gateway`.
 **Success Response** 
 **Code-** 200
 **Content-** This endpoint returns a json object of the trade (if fulfilled) - 
-  ```json
-    [
-    		{
-    		"id": 28,
-    		"item_id": 1,
-    		"seller_id": 1,
-    		"buyer_id": 1,
-    		"quantity": 15,
-    		"quantity_fulfilled": 15,
-    		"price": "46.76",
-    		"offer_id": 52,
-    		"created_on": "18:06:17",
-    		"updated_at": "18:06:17"
-    		}
-    ]
+```json
+  [
+    {
+    "id": 28,
+    "item_id": 1,
+    "seller_id": 1,
+    "buyer_id": 1,
+    "quantity": 15,
+    "quantity_fulfilled": 15,
+    "price": "46.76",
+    "offer_id": 52,
+    "created_on": "18:06:17",
+    "updated_at": "18:06:17"
+    }
+  ]
 
-  ```
- **Error Response**
+```
+**Error Response**
 **Code -** 401
 **Content -** `{ error : "Trade was not successful" }`
 
 
-
  2.  `http://127.0.0.1:8000/v1/data_gateway/?code=bhel`
+
 
 **Success Response -** 
 **Code-** 200
 **Content-** This endpoint returns a json object of the stock data(Truncated due to excess size) -
-  ```json
-    {
-    	"data": 
-    			{
-    			"symbol": "BHEL",
-    			"totalSellQuantity": 7332.0,
-    			"adhocMargin": 16.42,
-    			"companyName": "Bharat Heavy Electricals Limited",
-    			"marketType": "N",
-    			"dayHigh": 47.15,
-    			"basePrice": 46.55,
-    			"sellQuantity5": null,
-    			"sellQuantity4": null,
-    			"sellQuantity3": null,
-    			"sellQuantity2": null,
-    			"dayLow": 45.0,
-    			"sellQuantity1": 7332.0,
-    			"pChange": "-1.07",
-    			"buyPrice2": null,
-    			"buyPrice1": null,
-    			"previousClose": 46.55,
-    			"buyPrice4": null,
-    			"buyPrice3": null,
-    			"buyPrice5": null,
-    			"sellPrice1": 46.05,
-    			"sellPrice2": null,
-    			"sellPrice3": null,
-    			"sellPrice4": null,
-    			"sellPrice5": null,
-    			"change": "-0.50",
-    			"ndStartDate": null,
-    			"buyQuantity4": null,
-    			"buyQuantity3": null,
-    			"buyQuantity2": null,
-    			"buyQuantity1": null,
-    			"buyQuantity5": null,
-    			"closePrice": 46.05,
-    			"open": 46.5,
-    			"lastPrice": 46.05,
-    			"timestamp": "18:41:40"
-    			}
-    }
-  ```
+```json
+{
+    "data":
+        {
+        "symbol": "BHEL",
+        "totalSellQuantity": 7332.0,
+        "adhocMargin": 16.42,
+        "companyName": "Bharat Heavy Electricals Limited",
+        "marketType": "N",
+        "dayHigh": 47.15,
+        "basePrice": 46.55,
+        "sellQuantity5": null,
+        "sellQuantity4": null,
+        "sellQuantity3": null,
+        "sellQuantity2": null,
+        "dayLow": 45.0,
+        "sellQuantity1": 7332.0,
+        "pChange": "-1.07",
+        "buyPrice2": null,
+        "buyPrice1": null,
+        "previousClose": 46.55,
+        "buyPrice4": null,
+        "buyPrice3": null,
+        "buyPrice5": null,
+        "sellPrice1": 46.05,
+        "sellPrice2": null,
+        "sellPrice3": null,
+        "sellPrice4": null,
+        "sellPrice5": null,
+        "change": "-0.50",
+        "ndStartDate": null,
+        "buyQuantity4": null,
+        "buyQuantity3": null,
+        "buyQuantity2": null,
+        "buyQuantity1": null,
+        "buyQuantity5": null,
+        "closePrice": 46.05,
+        "open": 46.5,
+        "lastPrice": 46.05,
+        "timestamp": "18:41:40"
+        }
+}
+```
  
 **Error Response**
 **Code -** 401
@@ -140,15 +141,16 @@ There are 2 endpoints - `/v1/order_gateway` and `/v1/data_gateway`.
 
 The OB uses python sortedcontainers' sortedlist. Sortedlist is of the form:  `[ [quantity1, price1], [quantity2, price2], .... ]`. Asks and bids are stored in this list. The benefit of using sortedcontainers is that the accessing of element becomes extremely time efficient. Adding/removal also performs well on sortedcontainers as compared to B-Tree (Reference - [Link](grantjenks.com/docs/sortedcontainers/performance.html#id2)). Some time complexities are given below:
 
-`add(value)` - Runtime complexity*: O(log(n)) – approximate
+`add(value)` - Runtime complexity*: O(log(n)) – approximate.<br/>
+
 `bisect_right(value)` - Runtime complexity*: O(log(n)) – approximate.
 
  The flow of order processing is shown below in the flow-diagram:
  
   
-! [order flow](https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true)
+![order flow](https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true)
 
 
 ## Database Schema  
-! [ db schema ](https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/temp.jpg?raw=true)
+![db schema](https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/temp.jpg?raw=true)
  
