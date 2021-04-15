@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head class="crypt-dark">
+    <meta charset="UTF-8">
+    <title>Crypterio</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/icons.css">
+    <link rel="stylesheet" href="/static/css/ui.css">
+</head>
+
+<body class="crypt-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="cryptorio-forms cryptorio-forms-dark text-center pb-5">
+                    <div class="logo">
+                        <img src="/static/images/logo.png" alt="logo-image">
+                    </div>
+                    <h3 class="p-4">Login</h3>
+                    <div class="cryptorio-main-form">
+                        <form method="post" class="text-left">
+                            {% csrf_token %}
+                            <label for="email">User</label>
+                            <input type="text" id="id_username" name="username" placeholder="Enter username">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Please Input Your Password">
+
+                            <input type="submit" value="Log In" class="crypt-button-red-full">
+                        </form>
+                        <p class="float-left"><a href="/register">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+	<script src="/static/amc/core.js"></script>
+	<script src="/static/amc/charts.js"></script>
+	<script src="/static/amc/dark.js"></script>
+	<script src="/static/amc/animated.js"></script>
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/popper.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.js"></script>
+	<script src="/static/js/main.js"></script>
+	<script src="/static/js/amc.js"></script>
+	<script src="https://s3.tradingview.com/tv.js"></script>
+</body>
+</html>
