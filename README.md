@@ -154,9 +154,9 @@ The full functioning of the app (excluding UI):</br>
 ![flow](https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.gif?raw=true)
 
 
-<br>
+</br>
 The flow of order processing is shown below in the flow-diagram:
-
+</br>
 
 <p align="center">
   <img width="600" height="400" src="https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true">
