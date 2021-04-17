@@ -151,6 +151,12 @@ The OB uses python sortedcontainers' sortedlist. Sortedlist is of the form:  `[ 
 
  The flow of order processing is shown below in the flow-diagram:
 
+
+<p align="center">
+  <img width="600" height="400" src="https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true">
+</p>
+
+
 ## IMPORTANT
 Due to time constraint, many things are left in this app :(
  - [ ] Proper Integration Testing
@@ -160,7 +166,3 @@ Due to time constraint, many things are left in this app :(
  - [ ]  Make login and signup
 
  - [ ] Improve UI and add all stocks display
-
-<p align="center">
-  <img width="600" height="400" src="https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true">
-</p>
