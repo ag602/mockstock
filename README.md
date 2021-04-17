@@ -149,7 +149,13 @@ The OB uses python sortedcontainers' sortedlist. Sortedlist is of the form:  `[ 
 
 `bisect_right(value)` - Runtime complexity*: O(log(n)) – approximate.
 
- The flow of order processing is shown below in the flow-diagram:
+The full functioning of the app (excluding UI):</br>
+
+![flow](https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.gif?raw=true)
+
+
+<br>
+The flow of order processing is shown below in the flow-diagram:
 
 
 <p align="center">

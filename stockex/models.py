@@ -13,18 +13,18 @@ from djongo import models
 #
 #     class Meta:
 #         abstract = True
-class Items(models.Model):
-    code = models.CharField(max_length=10)
-    name = models.CharField(max_length=255)
-    details = models.TextField()
-    total_shares = models.IntegerField()
-    rem_shares = models.IntegerField()
-    price = models.IntegerField()
-    created_on = models.CharField(max_length=15)
-    updated_at = models.CharField(max_length=15)
-
-    def __str__(self):
-        return self.name
+# class Items(models.Model):
+#     code = models.CharField(max_length=10)
+#     name = models.CharField(max_length=255)
+#     details = models.TextField()
+#     total_shares = models.IntegerField()
+#     rem_shares = models.IntegerField()
+#     price = models.IntegerField()
+#     created_on = models.CharField(max_length=15)
+#     updated_at = models.CharField(max_length=15)
+#
+#     def __str__(self):
+#         return self.name
 
 
 class Offer(models.Model):
