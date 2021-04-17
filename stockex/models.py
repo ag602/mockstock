@@ -1,4 +1,6 @@
 from djongo import models
+
+
 # from django.contrib.auth.models import User
 # Create your models here.
 
@@ -11,8 +13,6 @@ from djongo import models
 #
 #     class Meta:
 #         abstract = True
-
-
 class Items(models.Model):
     code = models.CharField(max_length=10)
     name = models.CharField(max_length=255)
@@ -42,7 +42,7 @@ class Offer(models.Model):
     updated_at = models.CharField(max_length=15)
 
     def __str__(self):
-        return ("Uid:%s | Code:%s | Created:%s") %(self.user_id, self.code, self.created_on)
+        return ("Uid:%s | Code:%s | Created:%s") % (self.user_id, self.code, self.created_on)
 
 
 class Trade(models.Model):
@@ -55,3 +55,24 @@ class Trade(models.Model):
     offer_id = models.IntegerField()
     created_on = models.CharField(max_length=15)
     updated_at = models.CharField(max_length=15)
+
+
+class Bids(models.Model):
+    buy_price = models.CharField(max_length=10)
+    buy_quantity = models.IntegerField()
+
+
+class Asks(models.Model):
+    sell_price = models.CharField(max_length=10)
+    sell_quantity = models.IntegerField()
+
+
+class OrderBook(models.Model):
+    item_id = models.IntegerField()
+    asks = models.ManyToManyField(to=Asks, related_name='ask', blank=True)
+    bids = models.ManyToManyField(to=Bids, related_name='buy', blank=True)
+
+
+
+
+
