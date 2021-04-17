@@ -156,7 +156,8 @@ The full functioning of the app (excluding UI):</br>
 
 </br>
 The flow of order processing is shown below in the flow-diagram:
-</br>
+<br>
+
 
 <p align="center">
   <img width="600" height="400" src="https://github.com/ag602/mockstock/blob/master/stockex/static/images/documentation/flow.png?raw=true">
